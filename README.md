@@ -48,9 +48,5 @@ Está diseñada para ayudarte a organizar, gestionar y hacer seguimiento de tus 
 
 ## 🖼️ Captura de Pantalla
 
-> *(Agregá una imagen si querés mostrar la UI)*
-
-```bash
-![Vista previa de la app] /screenshots/main_ui.png
-
-![Botón Agregar] /screenshots/add.png
+![Vista previa de la app](screenshots/main_ui.png)
+![Botón Agregar](screenshots/add.png)
