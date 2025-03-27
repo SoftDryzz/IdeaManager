@@ -1,5 +1,6 @@
 ﻿namespace IdeaManager
 {
+    using System.Text;
     using IdeaManager.Models;
     using IdeaManager.Services;
 
@@ -164,6 +165,83 @@ private void SetupUI()
             }
         }
 
+        private void BtnExport_Click(object sender, EventArgs e)
+        {
+            using var saveDialog = new SaveFileDialog
+            {
+                Filter = "Archivo de texto (*.txt)|*.txt|Archivo CSV (*.csv)|*.csv|Markdown (*.md)|*.md",
+                Title = "Exportar Ideas",
+                FileName = "ideas_export"
+            };
+
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = saveDialog.FileName;
+
+                try
+                {
+                    if (path.EndsWith(".txt"))
+                        ExportAsTxt(path);
+                    else if (path.EndsWith(".csv"))
+                        ExportAsCsv(path);
+                    else if (path.EndsWith(".md"))
+                        ExportAsMarkdown(path);
+
+                    MessageBox.Show("Exportación completada con éxito.", "Exportar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al exportar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void ExportAsTxt(string path)
+        {
+            var lines = ideas.Select(i =>
+                $"Título: {i.Title}\n" +
+                $"Descripción: {i.Description}\n" +
+                $"Prioridad: {i.Priority}\n" +
+                $"Estado: {i.Status}\n" +
+                $"Tags: {string.Join(", ", i.Tags)}\n" +
+                $"Creado: {i.CreatedAt:yyyy-MM-dd HH:mm}\n" +
+                "----------------------------------------"
+            );
+
+            File.WriteAllLines(path, lines);
+        }
+
+        private void ExportAsCsv(string path)
+        {
+            var csv = new List<string>
+    {
+        "Título,Descripción,Prioridad,Estado,Tags,Creado"
+    };
+
+            csv.AddRange(ideas.Select(i =>
+                $"\"{i.Title}\",\"{i.Description.Replace("\"", "\"\"")}\",{i.Priority},{i.Status},\"{string.Join(";", i.Tags)}\",{i.CreatedAt:yyyy-MM-dd HH:mm}"
+            ));
+
+            File.WriteAllLines(path, csv);
+        }
+
+        private void ExportAsMarkdown(string path)
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine("# 📌 Ideas Exportadas\n");
+
+            foreach (var i in ideas)
+            {
+                sb.AppendLine($"## {i.Title}");
+                sb.AppendLine($"**Descripción:** {i.Description}");
+                sb.AppendLine($"- Prioridad: `{i.Priority}`");
+                sb.AppendLine($"- Estado: `{i.Status}`");
+                sb.AppendLine($"- Tags: {string.Join(", ", i.Tags)}");
+                sb.AppendLine($"- Creado: {i.CreatedAt:yyyy-MM-dd HH:mm}");
+                sb.AppendLine("---\n");
+            }
+
+            File.WriteAllText(path, sb.ToString());
+        }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {

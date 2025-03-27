@@ -1,7 +1,10 @@
 ﻿namespace IdeaManager
 {
     partial class MainForm
-    {private System.Windows.Forms.DataGridView dgvIdeas;
+    {
+
+        private Button btnExport;
+        private System.Windows.Forms.DataGridView dgvIdeas;
 private System.Windows.Forms.TextBox txtSearch;
 private System.Windows.Forms.ComboBox cbFilterStatus;
 private System.Windows.Forms.Button btnAdd;
@@ -45,6 +48,7 @@ private System.Windows.Forms.Label lblFilter;
             lblSearch = new Label();
             lblFilter = new Label();
             panelBottom = new Panel();
+            btnExport = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvIdeas).BeginInit();
             panelBottom.SuspendLayout();
             SuspendLayout();
@@ -65,7 +69,7 @@ private System.Windows.Forms.Label lblFilter;
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(117, 18);
+            txtSearch.Location = new Point(87, 18);
             txtSearch.Margin = new Padding(4, 5, 4, 5);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(284, 31);
@@ -75,7 +79,7 @@ private System.Windows.Forms.Label lblFilter;
             // 
             cbFilterStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cbFilterStatus.FormattingEnabled = true;
-            cbFilterStatus.Location = new Point(496, 18);
+            cbFilterStatus.Location = new Point(466, 18);
             cbFilterStatus.Margin = new Padding(4, 5, 4, 5);
             cbFilterStatus.Name = "cbFilterStatus";
             cbFilterStatus.Size = new Size(171, 33);
@@ -84,7 +88,7 @@ private System.Windows.Forms.Label lblFilter;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(709, 16);
+            btnAdd.Location = new Point(646, 12);
             btnAdd.Margin = new Padding(4, 5, 4, 5);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(107, 42);
@@ -94,7 +98,7 @@ private System.Windows.Forms.Label lblFilter;
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(824, 16);
+            btnEdit.Location = new Point(761, 12);
             btnEdit.Margin = new Padding(4, 5, 4, 5);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(107, 42);
@@ -105,7 +109,7 @@ private System.Windows.Forms.Label lblFilter;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(940, 16);
+            btnDelete.Location = new Point(877, 12);
             btnDelete.Margin = new Padding(4, 5, 4, 5);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(107, 42);
@@ -116,7 +120,7 @@ private System.Windows.Forms.Label lblFilter;
             // lblSearch
             // 
             lblSearch.AutoSize = true;
-            lblSearch.Location = new Point(40, 23);
+            lblSearch.Location = new Point(10, 23);
             lblSearch.Margin = new Padding(4, 0, 4, 0);
             lblSearch.Name = "lblSearch";
             lblSearch.Size = new Size(67, 25);
@@ -126,7 +130,7 @@ private System.Windows.Forms.Label lblFilter;
             // lblFilter
             // 
             lblFilter.AutoSize = true;
-            lblFilter.Location = new Point(423, 23);
+            lblFilter.Location = new Point(393, 23);
             lblFilter.Margin = new Padding(4, 0, 4, 0);
             lblFilter.Name = "lblFilter";
             lblFilter.Size = new Size(70, 25);
@@ -135,6 +139,7 @@ private System.Windows.Forms.Label lblFilter;
             // 
             // panelBottom
             // 
+            panelBottom.Controls.Add(btnExport);
             panelBottom.Controls.Add(cbFilterStatus);
             panelBottom.Controls.Add(btnDelete);
             panelBottom.Controls.Add(lblSearch);
@@ -147,6 +152,17 @@ private System.Windows.Forms.Label lblFilter;
             panelBottom.Name = "panelBottom";
             panelBottom.Size = new Size(1120, 69);
             panelBottom.TabIndex = 8;
+            // 
+            // btnExport
+            // 
+            btnExport.Location = new Point(993, 12);
+            btnExport.Margin = new Padding(4, 5, 4, 5);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(107, 42);
+            btnExport.TabIndex = 8;
+            btnExport.Text = "Exportar";
+            btnExport.UseVisualStyleBackColor = true;
+            btnExport.Click += BtnExport_Click;
             // 
             // MainForm
             // 
