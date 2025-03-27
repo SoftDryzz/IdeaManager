@@ -1,7 +1,7 @@
 # 📌 Gestor de Ideas Personales
 
 **Gestor de Ideas Personales** es una aplicación de escritorio desarrollada en **C#** usando **Windows Forms**, diseñada para ayudarte a organizar, gestionar y dar seguimiento a tus ideas, proyectos o tareas personales.
-(https://img.shields.io/badge/C%23-WPF-blue.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Idea Manager](https://img.shields.io/badge/C%23-WPF-blue.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ---
 
 ## ✨ Funcionalidades
