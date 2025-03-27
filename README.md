@@ -15,7 +15,6 @@
 - 📁 Almacenamiento local en archivo `ideas.json` usando JSON
 - 📌 Guardado automático y persistencia entre sesiones
 - 🖥️ Interfaz adaptable y pantalla completa
-- 🔄 (Opcional) Orden por columnas, exportación, subtareas, backups automáticos
 
 ---
 
